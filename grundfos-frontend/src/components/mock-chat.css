@@ -1,0 +1,213 @@
+/* --- Requested Base Styles --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 10px;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: auto;
+    overflow-y: auto;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.6rem;
+
+    /* Background styling */
+    background: linear-gradient(135deg, #1c1f26 0%, #0f172a 40%, #312e81 100%);
+    color: #f8fafc;
+
+    /* Flexbox Centering */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- Mock Chat Interface Styles --- */
+
+.mock-chat-container {
+    width: 100%;
+    max-width: 450px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: float 6s ease-in-out infinite;
+}
+
+.chat-header {
+    padding: 1.6rem 2rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #10b981;
+}
+
+.chat-title {
+    color: #f8fafc;
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+.chat-body {
+    padding: 2.4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    min-height: 250px;
+}
+
+.message {
+    padding: 1.4rem 1.8rem;
+    border-radius: 1.6rem;
+    max-width: 85%;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    opacity: 0;
+}
+
+.user-message {
+    align-self: flex-end;
+    background: #2563eb;
+    color: #ffffff;
+    border-bottom-right-radius: 0.4rem;
+}
+
+.ai-message {
+    align-self: flex-start;
+    background: rgba(255, 255, 255, 0.08);
+    color: #e2e8f0;
+    border-bottom-left-radius: 0.4rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    gap: 1.2rem;
+}
+
+.ai-icon {
+    margin-top: 0.2rem;
+    color: #60a5fa;
+}
+
+.chat-input-area {
+    padding: 1.6rem 2rem;
+    background: rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.fake-input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.2rem 1.6rem;
+    border-radius: 3rem;
+    color: #94a3b8;
+    font-size: 1.3rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.send-btn {
+    background: #2563eb;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.send-btn:hover {
+    transform: scale(1.05);
+}
+
+/* --- Looping Animations --- */
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes loopUserMessage {
+
+    0%,
+    5% {
+        opacity: 0;
+        transform: translateY(15px) scale(0.95);
+    }
+
+    10%,
+    85% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    95%,
+    100% {
+        opacity: 0;
+        transform: translateY(-15px) scale(0.95);
+    }
+}
+
+@keyframes loopAiMessage {
+
+    0%,
+    25% {
+        opacity: 0;
+        transform: translateY(15px) scale(0.95);
+    }
+
+    30%,
+    85% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    95%,
+    100% {
+        opacity: 0;
+        transform: translateY(-15px) scale(0.95);
+    }
+}
+
+.animate-msg-1 {
+    animation: loopUserMessage 8s ease-in-out infinite;
+}
+
+.animate-msg-2 {
+    animation: loopAiMessage 8s ease-in-out infinite;
+}

@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@layer base {
+  /* Only reset what's necessary, let Tailwind handle the rest */
+  button {
+    cursor: pointer;
+  }
+}
+
+/* Custom Grundfos Animations */
+@layer utilities {
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .delay-1 { animation-delay: 0.2s; }
+  .delay-2 { animation-delay: 0.4s; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes fade-up {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes image-glow {
+  0%, 100% { filter: drop-shadow(0 0 10px rgba(96, 177, 255, 0.4)); }
+  50% { filter: drop-shadow(0 0 30px rgba(221, 186, 255, 0.8)); }
+}
+
+/* Keep Anima's marquee logic if you plan to use scrolling logos later */
+@keyframes marquee {
+  to { transform: translateX(calc(-100% - var(--gap, 1rem))); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes gentle-tilt {
+  0%, 100% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+}
+
+.animate-tilt {
+  animation: gentle-tilt 2s ease-in-out infinite;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: #011d3d; 
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
