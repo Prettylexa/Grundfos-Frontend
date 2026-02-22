@@ -1,6 +1,6 @@
 import React from 'react';
 import pumpf1 from "../assets/pumpf1.png";
-import pumpf3 from "../assets/pumpf3.png";
+import pumpf3 from "../assets/pumpf3.jpg";
 import pumpf2 from "../assets/pumpf2.jpg";
 
 interface Feature {
